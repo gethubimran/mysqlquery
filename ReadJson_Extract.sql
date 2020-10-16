@@ -7,4 +7,4 @@ select json_extract(@jsn_test_string, '$[4].name', '$[0]') as 'Value AT Index 2 
 set @vl = replace(json_extract(@jsn_test_string, '$[4].name'), '"', '');
 
 
-select * from roommego2.owner a where owner_name = @vl and owner_id = @ownid limit 0,5;
+select * from owner a where owner_name = @vl and owner_id = @ownid limit 0,5;
