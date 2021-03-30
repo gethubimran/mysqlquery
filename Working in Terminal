@@ -1,0 +1,4 @@
+Bekerja di Terminal Mac
+1. export PATH=${PATH}:/usr/local/mysql/bin/;
+2. mysql -u root -p
+3. entry password mysql
