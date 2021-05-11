@@ -1,0 +1,69 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue-Medium;\f2\fnil\fcharset0 HelveticaNeue;
+\f3\fmodern\fcharset0 Courier;\f4\fnil\fcharset0 HelveticaNeue-Italic;\f5\fnil\fcharset0 HelveticaNeue-MediumItalic;
+}
+{\colortbl;\red255\green255\blue255;\red20\green24\blue33;\red52\green52\blue52;\red242\green242\blue242;
+\red18\green79\blue146;}
+{\*\expandedcolortbl;;\cssrgb\c10196\c12549\c17255;\cssrgb\c26667\c26667\c26667;\cssrgb\c96078\c96078\c96078;
+\cssrgb\c7059\c39216\c63922;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 IP Private Instance DB\
+https://www.liquidweb.com/kb/find-ip-of-linux-server-in-command-line/\
+\
+\pard\pardeftab720\sl840\sa220\partightenfactor0
+
+\f1\b\fs64 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Check IPs with Command Line\
+\pard\pardeftab720\sl360\sa220\partightenfactor0
+
+\fs32 \cf2 Step 1.
+\f2\b0 \uc0\u8232 Begin the process by logging into your server via SSH.\
+\pard\pardeftab720\sl440\partightenfactor0
+
+\f3\fs30 \cf3 \cb4 \strokec3 ssh user@liquidweb.example\cb1 \
+\pard\pardeftab720\sl360\sa220\partightenfactor0
+
+\f1\b\fs32 \cf2 \strokec2 Step 2.
+\f2\b0 \uc0\u8232 Now logged in via SSH, run the following command to check the servers IP.\
+\pard\pardeftab720\sl440\partightenfactor0
+
+\f3\fs30 \cf3 \cb4 \strokec3 ip route\cb1 \
+\pard\pardeftab720\sl360\sa220\partightenfactor0
+
+\f2\fs32 \cf2 \strokec2 This command is using the `
+\f4\i ip
+\f2\i0 ` tool and is calling the `
+\f4\i route
+\f2\i0 ` object.\uc0\u8232 This command prints the current routing table.\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl840\sa220\partightenfactor0
+
+\f1\b\fs64 \cf2 Reading the Results\
+\pard\pardeftab720\sl360\sa220\partightenfactor0
+
+\f2\b0\fs32 \cf2 Once we execute the command you will see an output similar to the text below.\
+\pard\pardeftab720\sl440\partightenfactor0
+
+\f3\fs30 \cf3 \cb4 \strokec3 default via 203.0.113.1 dev eth0\
+ 203.0.113.0/24 dev eth0 proto kernel scope link src 203.0.113.86\
+ 198.51.0.0/16 dev eth0 scope link metric 1002\cb1 \
+\pard\pardeftab720\sl360\sa220\partightenfactor0
+
+\f2\fs32 \cf2 \strokec2 This information shows us the servers IP routing table, which is essentially a set of rules used to determine where data will be directed.\
+When using this technique to find a server's IP, you will want to notice the lines containing `
+\f5\i\b src
+\f2\i0\b0 ` followed by an IP address. On these lines, the IP address following `
+\f5\i\b src
+\f2\i0\b0 ` are the IP(s) configured on the server.\
+Any device using IP addresses will have a routing table that is used to determine the behavior of the networking devices. In the example above, we can see the servers routing table, showing that the server has an IP address of `
+\f4\i 203.0.113.86
+\f2\i0 `.\
+While it may not look like much to new users, these lines are filled with valuable information. Each line of the routing table is there to describe a different behavior or condition. More information on these settings can be found in the\'a0
+\f4\i ip
+\f2\i0 \'a0commands man pages. These settings are found in the command line using `
+\f4\i man ip route
+\f2\i0 `. Additionally, we can read the\'a0{\field{\*\fldinst{HYPERLINK "https://linux.die.net/man/8/ip"}}{\fldrslt \cf5 \strokec5 man page for the IP command online}}.\
+}
