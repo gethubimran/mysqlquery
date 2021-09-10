@@ -6,3 +6,14 @@ CREATE DEFINER=`rooadmin`@`%` FUNCTION `SPLIT_STR`(
 RETURN REPLACE(SUBSTRING(SUBSTRING_INDEX(x, delim, pos),
        LENGTH(SUBSTRING_INDEX(x, delim, pos -1)) + 1),
        delim, '')
+       
+#*********************************************
+
+CREATE DEFINER=`rooadmin`@`%` FUNCTION `SPLIT_STR_LONG_TEXT`(
+  x LONGTEXT,
+  delim VARCHAR(12),
+  pos INT
+) RETURNS longtext CHARSET utf8mb4
+RETURN REPLACE(SUBSTRING(SUBSTRING_INDEX(x, delim, pos),
+       LENGTH(SUBSTRING_INDEX(x, delim, pos -1)) + 1),
+       delim, '')
